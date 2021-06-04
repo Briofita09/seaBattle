@@ -1,10 +1,16 @@
 body {
   font-family: "Press Start 2P", cursive;
+  background-color: rgb(3, 91, 121);
 }
 
 header > h1 {
   font-size: 300%;
   text-align: center;
+}
+
+header h1 > a {
+  text-decoration: none;
+  color: black;
 }
 
 h2 {
@@ -44,6 +50,7 @@ h2 {
   align-items: center;
   margin-top: 2rem;
   padding-left: 0;
+  justify-content: space-evenly;
 }
 
 .screenshot-item {
