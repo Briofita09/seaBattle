@@ -52,6 +52,7 @@ document.querySelectorAll(".cell").forEach((tile) => {
   }
   tile.onclick = function () {
     tile.classList.add("ship");
+    verify();
   };
 });
 
@@ -79,7 +80,7 @@ console.log(gameBoard);
 // criando navios
 
 class Ship {
-  constructor(size) {
+  constructor(size, position) {
     this.size = size;
   }
 }
@@ -87,9 +88,8 @@ class Ship {
 //criando destroyer com tamanho de 4 tiles (3 desses estarão no tabuleiro)
 
 class Destroyer extends Ship {
-  constructor(size) {
-    super(size);
-
+  constructor(size, position) {
+    super(size, position);
     this.size = 4;
   }
 
@@ -101,8 +101,8 @@ class Destroyer extends Ship {
 //criando porta-aviões com tamanho de 5 tiles (1 desse estará no tabuleiro)
 
 class AircraftCarrier extends Ship {
-  constructor(size) {
-    super(size);
+  constructor(size, position) {
+    super(size, position);
     this.size = 5;
   }
   placeAircraftCarrier() {
@@ -113,8 +113,8 @@ class AircraftCarrier extends Ship {
 //criando cruzador com tamanho de 3 tiles (4 desses estarão no tabuleiro)
 
 class Cruiser extends Ship {
-  constructor(size) {
-    super(size);
+  constructor(size, position) {
+    super(size, position);
     this.size = 3;
   }
   placeCruiser() {
@@ -122,4 +122,27 @@ class Cruiser extends Ship {
   }
 }
 
-placeCruiser();
+//criando a classe tiro
+
+class Shot {
+  constructor(local) {
+    this.local = local;
+  }
+
+  //verificando se acertou ou errou
+  verify(local) {
+    if (local === tile.classList.contains("ship")) {
+      tile.classList.add("correct");
+    } else {
+      tile.classList.add("miss");
+    }
+  }
+}
+
+for (let i = 0; i < gameBoard.length; i++) {
+  for (let j = 0; j < gameBoard[i].length; j++) {
+    if (gameBoard[i][j].tile.classList.contains("ship") !== "ship") {
+      tile.classList.add("ship");
+    }
+  }
+}

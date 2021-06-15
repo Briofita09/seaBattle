@@ -33,3 +33,11 @@ header h1 > a {
 .ship {
   background: black;
 }
+
+.miss {
+  background: white;
+}
+
+.correct {
+  background: red;
+}
