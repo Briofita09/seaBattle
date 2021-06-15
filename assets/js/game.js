@@ -1,3 +1,5 @@
+/* let directions = ['N', 'E', 'S', 'W']
+
 //criando tabuleiro e variavel tile para pintar os navios no tabuleiro
 
 let boardA = [];
@@ -73,14 +75,31 @@ let gameBoard = [
   boardN,
   boardO,
   boardP,
-];
+]; */
 
 console.log(gameBoard);
 
-for (let i = 0; i < gameBoard.length; i++) {
-  for (let j = 0; j < gameBoard[i].length; j++) {
-    if (gameBoard[i][j].tile.classList.contains("ship") !== "ship") {
-      tile.classList.add("ship");
-    }
+//for (let i = 0; i < gameBoard.length; i++) {
+// for (let j = 0; j < gameBoard[i].length; j++) {
+//   if (gameBoard[i][j].tile.classList.contains("ship") == false) {
+//    tile.classList.add("ship");
+//  }
+// }
+//}
+
+//adicionando navios ao tabuleiro
+/* ships.forEach(){
+  let place = gameBoard[i][j]
+    if(gameBoard[i][j].tile.classList.contains("ship") == false){
+      place = Math.floor((Math.random()*10)+1)
   }
-}
+} */
+
+window.addEventListener("load", function () {
+  const destroyer = new Destroyer(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+  destroyer.placeShip();
+  destroyer.placeShip();
+});
