@@ -21,6 +21,7 @@ header h1 > a {
   width: 15px;
   height: 15px;
   border: 1px solid black;
+  font-size: 0;
 }
 
 .table-container {
