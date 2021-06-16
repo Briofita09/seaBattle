@@ -109,5 +109,45 @@ window.addEventListener("load", function () {
     null,
     Math.floor(Math.random() * directions.length)
   );
-  console.log(destroyer1.placeShip());
+
+  const airCraftCarrier = new AircraftCarrier(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+
+  const cruiser1 = new Cruiser(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+
+  const cruiser2 = new Cruiser(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+
+  const cruiser3 = new Cruiser(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+
+  const cruiser4 = new Cruiser(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+
+  destroyer1.placeShip();
+  destroyer2.placeShip();
+  destroyer3.placeShip();
+  airCraftCarrier.placeShip();
+  cruiser1.placeShip();
+  cruiser2.placeShip();
+  cruiser3.placeShip();
+  cruiser4.placeShip();
+  let allShips = [];
+  document.querySelectorAll(".ship").forEach((inBoard) => {
+    allShips.push(inBoard);
+  });
+  if (allShips.length !== 29) {
+    document.location.reload(true);
+  }
 });
