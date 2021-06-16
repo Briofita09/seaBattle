@@ -1,21 +1,21 @@
 //TROCA DE TURNO
 
-let currentPlayer = "you";
+let currentPlayer = 1;
 
 function switchPlayer() {
-  if (currentPlayer === "you") {
-    currentPlayer === "ai";
+  if (currentPlayer === 1) {
+    currentPlayer === 2;
   } else {
-    currentPlayer === "you";
+    currentPlayer === 1;
   }
 }
-
 //direções
 let directions = [0, 1, 2, 3];
 
 //criando primeiro tabuleiro e variavel tile para pintar os navios no tabuleiro e atirar (verificando acerto e erro)
 
-let tile = document.getElementsByClassName("cell");
+let target = document.getElementsByClassName("cell");
+console.log(target);
 
 let boardA = [];
 let boardB = [];
@@ -69,7 +69,7 @@ document.querySelectorAll(".cell").forEach((tile) => {
     boardP.push(tile);
   }
   //TIRO
-  if (currentPlayer === "you") {
+  /*   if (currentPlayer === "you") {
     tile.onclick = function () {
       if (tile.classList.contains("ship") === true) {
         tile.classList.remove("ship");
@@ -80,7 +80,7 @@ document.querySelectorAll(".cell").forEach((tile) => {
         switchPlayer();
       }
     };
-  }
+  } */
 });
 
 let gameBoard = [
@@ -102,6 +102,20 @@ let gameBoard = [
   boardP,
 ];
 
+//TIRO
+
+if (currentPlayer === 1) {
+  target.onclick = function () {
+    if (target.classList.contains("ship") === true) {
+      tartet.classList.remove("ship");
+      target.classList.add("correct");
+      switchPlayer();
+    } else {
+      target.classList.add("miss");
+      switchPlayer();
+    }
+  };
+}
 //criando segundo tabuleiro
 
 let tile2 = document.getElementsByClassName("cell2");
@@ -158,7 +172,7 @@ document.querySelectorAll(".cell2").forEach((tile2) => {
     boardP2.push(tile2);
   }
   //TIRO
-  if (currentPlayer === "ai") {
+  /*   if (currentPlayer === "ai") {
     tile2.onclick = function () {
       if (tile2.classList.contains("ship2") === true) {
         tile2.classList.remove("ship2");
@@ -169,7 +183,7 @@ document.querySelectorAll(".cell2").forEach((tile2) => {
         switchPlayer();
       }
     };
-  }
+  } */
   /*   //WIN CONDITION
   let allShipsInBoard = [];
 
@@ -199,6 +213,21 @@ let gameBoard2 = [
   boardO2,
   boardP2,
 ];
+
+//TIRO DO COMPUTDOR
+if (currentPlayer === 2) {
+  let cordx = Math.floor(Math.random() * 16);
+  let cordy = Math.floor(Math.random() * 16);
+  let shot = gameBoard2[cordx][cordy];
+  if (shot.classList.contains("ship2") === true) {
+    shot.classList.remove("ship2");
+    shot.classList.add("correct");
+    switchPlayer();
+  } else {
+    shot.classList.add("miss");
+    switchPlayer();
+  }
+}
 
 // criando navios
 
