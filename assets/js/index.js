@@ -1,8 +1,10 @@
 // classes
 
-let directions = ["N", "E", "S", "W"];
+let directions = [0, 1, 2, 3];
 
-//criando tabuleiro e variavel tile para pintar os navios no tabuleiro
+let tile = document.getElementsByClassName("cell");
+
+console.log(tile);
 
 let boardA = [];
 let boardB = [];
@@ -20,7 +22,10 @@ let boardM = [];
 let boardN = [];
 let boardO = [];
 let boardP = [];
-document.querySelectorAll(".cell").forEach((tile) => {
+
+//criando tabuleiro e variavel tile para pintar os navios no tabuleiro
+
+document.querySelectorAll("td").forEach((tile) => {
   if (boardA.length < 16) {
     boardA.push(tile);
   } else if (boardB.length < 16) {
@@ -86,33 +91,42 @@ class Ship {
     this.direction = direction;
   }
   placeShip() {
-    const coordX = Math.floor(Math.random() * 16);
-    const coordY = Math.floor(Math.random() * 16);
+    let coordX = Math.floor(Math.random() * 16);
+    let coordY = Math.floor(Math.random() * 16);
     let place = gameBoard[coordX][coordY];
-    if (place.tile.classList.contains("ship") = false) {
+    if (place.classList.contains("ship") == false) {
       switch (this.direction) {
-        case "S":
+        // SOUTH
+        case 2:
           if (coordY < 16 - this.size) {
             for (let i = 0; i < this.size; i++) {
-              gameBoard[coordX][coordY + i].tile.classList.add("ship");
+              gameBoard[coordX][coordY + i].classList.add("ship");
+              //place.classList.add("ship");
             }
           }
-        case "N":
+        // NORTH
+        case 0:
           if (coordY > 0 + this.size) {
             for (let i = 0; i < this.size; i++) {
-              gameBoard[coordX][coordY - i].tile.classList.add("ship");
+              gameBoard[coordX][coordY - i].classList.add("ship");
+              //place.classList.add("ship");
             }
           }
-        case "E":
+        //EAST
+        case 1:
           if (coordX > 0 + this.size) {
             for (let i = 0; i < this.size; i++) {
-              gameBoard[coordX - i][coordY].tile.classList.add("ship");
+              gameBoard[coordX - i][coordY].classList.add("ship");
+              //place.classList.add("ship");
             }
           }
-        case "W":
+        //WEST
+        case 3:
           if (coordX < 16 - this.size) {
             for (let i = 0; i < this.size; i++) {
-              gameBoard[coordX + i][coordY].tile.classList.add("ship");
+              gameBoard[coordX + i][coordY].classList.add("ship");
+              //console.log(gameBoard[coordX + i][coordY]);
+              //place.classList.add("ship");
             }
           }
       }
@@ -126,6 +140,7 @@ class Destroyer extends Ship {
   constructor(size, direction) {
     super(size, direction);
     this.size = 4;
+    this.direction = direction;
   }
 }
 
@@ -136,9 +151,6 @@ class AircraftCarrier extends Ship {
     super(size, direction);
     this.size = 5;
   }
-  placeAircraftCarrier() {
-    return tile.classList.add("ship");
-  }
 }
 
 //criando cruzador com tamanho de 3 tiles (4 desses estarão no tabuleiro)
@@ -147,9 +159,6 @@ class Cruiser extends Ship {
   constructor(size, direction) {
     super(size, direction);
     this.size = 3;
-  }
-  placeCruiser() {
-    return tile.classList.add("ship");
   }
 }
 

@@ -77,7 +77,8 @@ let gameBoard = [
   boardP,
 ]; */
 
-console.log(gameBoard);
+//console.log(gameBoard);
+//console.log(directions[0]);
 
 //for (let i = 0; i < gameBoard.length; i++) {
 // for (let j = 0; j < gameBoard[i].length; j++) {
@@ -96,10 +97,17 @@ console.log(gameBoard);
 } */
 
 window.addEventListener("load", function () {
-  const destroyer = new Destroyer(
+  const destroyer1 = new Destroyer(
     null,
     Math.floor(Math.random() * directions.length)
   );
-  destroyer.placeShip();
-  destroyer.placeShip();
+  const destroyer2 = new Destroyer(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+  const destroyer3 = new Destroyer(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+  console.log(destroyer1.placeShip());
 });
