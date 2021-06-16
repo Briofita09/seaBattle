@@ -23,7 +23,7 @@ let boardN = [];
 let boardO = [];
 let boardP = [];
 
-//criando tabuleiro e variavel tile para pintar os navios no tabuleiro
+//criando tabuleiro e variavel tile para pintar os navios no tabuleiro e atirar (verificando acerto e erro)
 
 document.querySelectorAll("td").forEach((tile) => {
   if (boardA.length < 16) {
@@ -59,8 +59,22 @@ document.querySelectorAll("td").forEach((tile) => {
   } else if (boardP.length < 16) {
     boardP.push(tile);
   }
+  //TIRO
   tile.onclick = function () {
-    tile.classList.add("ship");
+    if (tile.classList.contains("ship") === true) {
+      tile.classList.remove("ship");
+      tile.classList.add("correct");
+    } else {
+      tile.classList.add("miss");
+    }
+    //WIN CONDITION
+    let allShipsInBoard = [];
+    document.querySelectorAll(".ship").forEach((ship) => {
+      allShipsInBoard.push(ship);
+    });
+    if (allShipsInBoard.length === 0) {
+      console.log("you win!!");
+    }
   };
 });
 
@@ -266,23 +280,6 @@ class Cruiser extends Ship {
           //place.classList.add("ship");
         }
       }
-    }
-  }
-}
-
-//criando a classe tiro
-
-class Shot {
-  constructor(local) {
-    this.local = local;
-  }
-
-  //verificando se acertou ou errou
-  verify(local) {
-    if (local === tile.classList.contains("ship")) {
-      tile.classList.add("correct");
-    } else {
-      tile.classList.add("miss");
     }
   }
 }
