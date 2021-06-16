@@ -37,6 +37,51 @@ window.addEventListener("load", function () {
     Math.floor(Math.random() * directions.length)
   );
 
+  const destroyerPc1 = new DestroyerPC(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+
+  const destroyerPc2 = new DestroyerPC(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+
+  const destroyerPc3 = new DestroyerPC(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+
+  const airCraftCarrierPc = new AircraftCarrierPC(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+
+  const cruiserPc1 = new CruiserPC(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+  const cruiserPc2 = new CruiserPC(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+  const cruiserPc3 = new CruiserPC(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+  const cruiserPc4 = new CruiserPC(
+    null,
+    Math.floor(Math.random() * directions.length)
+  );
+  destroyerPc1.placeShip();
+  destroyerPc2.placeShip();
+  destroyerPc3.placeShip();
+  airCraftCarrierPc.placeShip();
+  cruiserPc1.placeShip();
+  cruiserPc2.placeShip();
+  cruiserPc3.placeShip();
+  cruiserPc4.placeShip();
+
   destroyer1.placeShip();
   destroyer2.placeShip();
   destroyer3.placeShip();
@@ -53,15 +98,12 @@ window.addEventListener("load", function () {
   if (allShips.length !== 29) {
     document.location.reload(true);
   }
-});
 
-let allShipsInBoard = [];
-document.querySelectorAll(".ship").forEach((ship) => {
-  allShipsInBoard.push(ship);
+  let allShips2 = [];
+  document.querySelectorAll(".ship2").forEach((inBoard2) => {
+    allShips2.push(inBoard2);
+  });
+  if (allShips2.length !== 29) {
+    document.location.reload(true);
+  }
 });
-console.log(allShipsInBoard.length);
-/* //condição de vitória
-/* console.log(allShips);
-while (allShips.length === 0) {
-  console.log("YOU WIN!!!"); 
-} */
