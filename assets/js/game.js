@@ -114,11 +114,17 @@ let x = document.getElementsByClassName("ship");
 
 let y = document.getElementsByClassName("ship2");
 
+let win = document.querySelector(".winPic");
+
+let lose = document.querySelector(".losePic");
+
 function checkWinCondition() {
   if (x.length === 0) {
-    alert("YOU WIN");
+    win.classList.remove("winPic");
+    win.classList.add("showWin");
   }
   if (y.length === 0) {
-    alert("YOU LOSE");
+    lose.classList.remove("losePic");
+    lose.classList.add("showLose");
   }
 }
