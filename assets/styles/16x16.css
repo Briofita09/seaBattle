@@ -37,11 +37,11 @@ header h1 > a {
 }
 
 .ship {
-  background: black;
+  background: rgb(3, 91, 121);
 }
 
 .ship2 {
-  background: gray;
+  background: black;
 }
 
 .miss {
