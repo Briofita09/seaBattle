@@ -107,3 +107,25 @@ window.addEventListener("load", function () {
     document.location.reload(true);
   }
 });
+
+//checar condição de vitoria (essa função é chamada no index.js junto a checagem de tiro)
+
+let allShipsHuman = [];
+let allShipsPc = [];
+document.querySelectorAll(".ship").forEach((x) => {
+  allShipsHuman.push(x);
+});
+document.querySelectorAll(".ship2").forEach((y) => {
+  allShipsPc.push(y);
+});
+console.log(allShipsHuman);
+console.log(allShipsPc);
+function checkWinCondition() {
+  if (allShipsHuman.length === 0) {
+    alert("YOU LOSE");
+  }
+
+  if (allShipsPc.length === 0) {
+    alert("YOU WIN");
+  }
+}

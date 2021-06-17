@@ -1,21 +1,10 @@
-//TROCA DE TURNO
-
-let currentPlayer = 1;
-
-function switchPlayer() {
-  if (currentPlayer === 1) {
-    currentPlayer === 2;
-  } else {
-    currentPlayer === 1;
-  }
-}
 //direções
 let directions = [0, 1, 2, 3];
 
 //criando primeiro tabuleiro e variavel tile para pintar os navios no tabuleiro e atirar (verificando acerto e erro)
 
 let target = document.getElementsByClassName("cell");
-console.log(target);
+//console.log(target);
 
 let boardA = [];
 let boardB = [];
@@ -68,19 +57,16 @@ document.querySelectorAll(".cell").forEach((tile) => {
   } else if (boardP.length < 16) {
     boardP.push(tile);
   }
-  //TIRO
-  /*   if (currentPlayer === "you") {
-    tile.onclick = function () {
-      if (tile.classList.contains("ship") === true) {
-        tile.classList.remove("ship");
-        tile.classList.add("correct");
-        switchPlayer();
-      } else {
-        tile.classList.add("miss");
-        switchPlayer();
-      }
-    };
-  } */
+  tile.onclick = function () {
+    if (tile.classList.contains("ship") === true) {
+      tile.classList.remove("ship");
+      tile.classList.add("correct");
+    } else {
+      tile.classList.add("miss");
+    }
+    pcShot();
+    checkWinCondition();
+  };
 });
 
 let gameBoard = [
@@ -102,20 +88,6 @@ let gameBoard = [
   boardP,
 ];
 
-//TIRO
-
-if (currentPlayer === 1) {
-  target.onclick = function () {
-    if (target.classList.contains("ship") === true) {
-      tartet.classList.remove("ship");
-      target.classList.add("correct");
-      switchPlayer();
-    } else {
-      target.classList.add("miss");
-      switchPlayer();
-    }
-  };
-}
 //criando segundo tabuleiro
 
 let tile2 = document.getElementsByClassName("cell2");
@@ -171,21 +143,8 @@ document.querySelectorAll(".cell2").forEach((tile2) => {
   } else if (boardP2.length < 16) {
     boardP2.push(tile2);
   }
-  //TIRO
-  /*   if (currentPlayer === "ai") {
-    tile2.onclick = function () {
-      if (tile2.classList.contains("ship2") === true) {
-        tile2.classList.remove("ship2");
-        tile2.classList.add("correct");
-        switchPlayer();
-      } else {
-        tile2.classList.add("miss");
-        switchPlayer();
-      }
-    };
-  } */
-  /*   //WIN CONDITION
-  let allShipsInBoard = [];
+  //WIN CONDITION
+  /*   let allShipsInBoard = [];
 
   document.querySelectorAll(".ship").forEach((ship) => {
     allShipsInBoard.push(ship);
@@ -215,17 +174,15 @@ let gameBoard2 = [
 ];
 
 //TIRO DO COMPUTDOR
-if (currentPlayer === 2) {
+function pcShot() {
   let cordx = Math.floor(Math.random() * 16);
   let cordy = Math.floor(Math.random() * 16);
   let shot = gameBoard2[cordx][cordy];
   if (shot.classList.contains("ship2") === true) {
     shot.classList.remove("ship2");
     shot.classList.add("correct");
-    switchPlayer();
   } else {
     shot.classList.add("miss");
-    switchPlayer();
   }
 }
 
@@ -237,7 +194,6 @@ class Ship {
     this.direction = direction;
   }
 }
-
 //criando destroyer com tamanho de 4 tiles (3 desses estarão no tabuleiro)
 
 class Destroyer extends Ship {
