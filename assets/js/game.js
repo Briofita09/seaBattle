@@ -80,7 +80,6 @@ window.addEventListener("load", function () {
   cruiserPc1.placeShip();
   cruiserPc2.placeShip();
   cruiserPc3.placeShip();
-  cruiserPc4.placeShip();
 
   destroyer1.placeShip();
   destroyer2.placeShip();
@@ -89,23 +88,6 @@ window.addEventListener("load", function () {
   cruiser1.placeShip();
   cruiser2.placeShip();
   cruiser3.placeShip();
-  cruiser4.placeShip();
-
-  let allShips = [];
-  document.querySelectorAll(".ship").forEach((inBoard) => {
-    allShips.push(inBoard);
-  });
-  if (allShips.length !== 29) {
-    document.location.reload(true);
-  }
-
-  let allShips2 = [];
-  document.querySelectorAll(".ship2").forEach((inBoard2) => {
-    allShips2.push(inBoard2);
-  });
-  if (allShips2.length !== 29) {
-    document.location.reload(true);
-  }
 });
 
 //checar condição de vitoria (essa função é chamada no index.js junto a checagem de tiro)
@@ -114,17 +96,12 @@ let x = document.getElementsByClassName("ship");
 
 let y = document.getElementsByClassName("ship2");
 
-let win = document.querySelector(".winPic");
-
-let lose = document.querySelector(".losePic");
+let gameOver = document.getElementById("main");
 
 function checkWinCondition() {
   if (x.length === 0) {
-    win.classList.remove("winPic");
-    win.classList.add("showWin");
-  }
-  if (y.length === 0) {
-    lose.classList.remove("losePic");
-    lose.classList.add("showLose");
+    gameOver.innerHTML = `<img src="./assets/images/winner.jpg" class="showWin" />`;
+  } else if (y.length === 0) {
+    gameOver.innerHTML = `<img src="./assets/images/loser.jpg" class="showLose" />`;
   }
 }

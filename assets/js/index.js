@@ -202,10 +202,46 @@ class Destroyer extends Ship {
     this.size = 4;
     this.direction = direction;
   }
+  checkDirection(x, y) {
+    let count1 = this.size + 1;
+    let count2 = this.size + 1;
+    let count3 = this.size + 1;
+    let count4 = this.size + 1;
+    for (let i = 0; i < this.size + 1 && y + i < 16; i++) {
+      if (!gameBoard[x][y + i].classList.contains("ship")) {
+        count1--;
+      }
+    }
+    for (let i = 0; i < this.size + 1 && y - i >= 0; i++) {
+      if (!gameBoard[x][y - i].classList.contains("ship")) {
+        count2--;
+      }
+    }
+    for (let i = 0; i < this.size + 1 && x + i < 16; i++) {
+      if (!gameBoard[x + i][y].classList.contains("ship")) {
+        count3--;
+      }
+    }
+    for (let i = 0; i < this.size + 1 && x - i >= 0; i++) {
+      if (!gameBoard[x - i][y].classList.contains("ship")) {
+        count4--;
+      }
+    }
+    if (count1 === 0) {
+      this.direction = 2;
+    } else if (count2 === 0) {
+      this.direction = 0;
+    } else if (count3 === 0) {
+      this.direction = 3;
+    } else if (count4 === 0) {
+      this.direction = 1;
+    }
+  }
   placeShip() {
     let coordX = Math.floor(Math.random() * 16);
     let coordY = Math.floor(Math.random() * 16);
     let place = gameBoard[coordX][coordY];
+    this.checkDirection(coordX, coordY);
     if (place.classList.contains("ship") == false) {
       let x = 0;
       let y = 0;
@@ -248,10 +284,46 @@ class AircraftCarrier extends Ship {
     super(size, direction);
     this.size = 5;
   }
+  checkDirection(x, y) {
+    let count1 = this.size + 1;
+    let count2 = this.size + 1;
+    let count3 = this.size + 1;
+    let count4 = this.size + 1;
+    for (let i = 0; i < this.size + 1 && y + i < 16; i++) {
+      if (!gameBoard[x][y + i].classList.contains("ship")) {
+        count1--;
+      }
+    }
+    for (let i = 0; i < this.size + 1 && y - i >= 0; i++) {
+      if (!gameBoard[x][y - i].classList.contains("ship")) {
+        count2--;
+      }
+    }
+    for (let i = 0; i < this.size + 1 && x + i < 16; i++) {
+      if (!gameBoard[x + i][y].classList.contains("ship")) {
+        count3--;
+      }
+    }
+    for (let i = 0; i < this.size + 1 && x - i >= 0; i++) {
+      if (!gameBoard[x - i][y].classList.contains("ship")) {
+        count4--;
+      }
+    }
+    if (count1 === 0) {
+      this.direction = 2;
+    } else if (count2 === 0) {
+      this.direction = 0;
+    } else if (count3 === 0) {
+      this.direction = 3;
+    } else if (count4 === 0) {
+      this.direction = 1;
+    }
+  }
   placeShip() {
     let coordX = Math.floor(Math.random() * 16);
     let coordY = Math.floor(Math.random() * 16);
     let place = gameBoard[coordX][coordY];
+    this.checkDirection(coordX, coordY);
     if (place.classList.contains("ship") == false) {
       let x = 0;
       let y = 0;
@@ -294,10 +366,46 @@ class Cruiser extends Ship {
     super(size, direction);
     this.size = 3;
   }
+  checkDirection(x, y) {
+    let count1 = this.size + 1;
+    let count2 = this.size + 1;
+    let count3 = this.size + 1;
+    let count4 = this.size + 1;
+    for (let i = 0; i < this.size + 1 && y + i < 16; i++) {
+      if (!gameBoard[x][y + i].classList.contains("ship")) {
+        count1--;
+      }
+    }
+    for (let i = 0; i < this.size + 1 && y - i >= 0; i++) {
+      if (!gameBoard[x][y - i].classList.contains("ship")) {
+        count2--;
+      }
+    }
+    for (let i = 0; i < this.size + 1 && x + i < 16; i++) {
+      if (!gameBoard[x + i][y].classList.contains("ship")) {
+        count3--;
+      }
+    }
+    for (let i = 0; i < this.size + 1 && x - i >= 0; i++) {
+      if (!gameBoard[x - i][y].classList.contains("ship")) {
+        count4--;
+      }
+    }
+    if (count1 === 0) {
+      this.direction = 2;
+    } else if (count2 === 0) {
+      this.direction = 0;
+    } else if (count3 === 0) {
+      this.direction = 3;
+    } else if (count4 === 0) {
+      this.direction = 1;
+    }
+  }
   placeShip() {
     let coordX = Math.floor(Math.random() * 16);
     let coordY = Math.floor(Math.random() * 16);
     let place = gameBoard[coordX][coordY];
+    this.checkDirection(coordX, coordY);
     if (place.classList.contains("ship") == false) {
       let x = 0;
       let y = 0;
@@ -341,10 +449,46 @@ class DestroyerPC extends Ship {
     this.size = 4;
     this.direction = direction;
   }
+  checkDirection(x, y) {
+    let count1 = this.size + 1;
+    let count2 = this.size + 1;
+    let count3 = this.size + 1;
+    let count4 = this.size + 1;
+    for (let i = 0; i < this.size + 1 && y + i < 16; i++) {
+      if (!gameBoard2[x][y + i].classList.contains("ship2")) {
+        count1--;
+      }
+    }
+    for (let i = 0; i < this.size + 1 && y - i >= 0; i++) {
+      if (!gameBoard2[x][y - i].classList.contains("ship2")) {
+        count2--;
+      }
+    }
+    for (let i = 0; i < this.size + 1 && x + i < 16; i++) {
+      if (!gameBoard2[x + i][y].classList.contains("ship2")) {
+        count3--;
+      }
+    }
+    for (let i = 0; i < this.size + 1 && x - i >= 0; i++) {
+      if (!gameBoard2[x - i][y].classList.contains("ship2")) {
+        count4--;
+      }
+    }
+    if (count1 === 0) {
+      this.direction = 2;
+    } else if (count2 === 0) {
+      this.direction = 0;
+    } else if (count3 === 0) {
+      this.direction = 3;
+    } else if (count4 === 0) {
+      this.direction = 1;
+    }
+  }
   placeShip() {
     let coordX = Math.floor(Math.random() * 16);
     let coordY = Math.floor(Math.random() * 16);
     let place = gameBoard2[coordX][coordY];
+    this.checkDirection(coordX, coordY);
     if (place.classList.contains("ship2") == false) {
       if (this.direction === 2 && coordY < 16 - this.size) {
         let x = 0;
@@ -389,10 +533,46 @@ class AircraftCarrierPC extends Ship {
     super(size, direction);
     this.size = 5;
   }
+  checkDirection(x, y) {
+    let count1 = this.size;
+    let count2 = this.size;
+    let count3 = this.size;
+    let count4 = this.size;
+    for (let i = 0; i < this.size && y + i < 16; i++) {
+      if (!gameBoard2[x][y + i].classList.contains("ship2")) {
+        count1--;
+      }
+    }
+    for (let i = 0; i < this.size && y - i >= 0; i++) {
+      if (!gameBoard2[x][y - i].classList.contains("ship2")) {
+        count2--;
+      }
+    }
+    for (let i = 0; i < this.size && x + i < 16; i++) {
+      if (!gameBoard2[x + i][y].classList.contains("ship2")) {
+        count3--;
+      }
+    }
+    for (let i = 0; i < this.size && x - i >= 0; i++) {
+      if (!gameBoard2[x - i][y].classList.contains("ship2")) {
+        count4--;
+      }
+    }
+    if (count1 === 0) {
+      this.direction = 2;
+    } else if (count2 === 0) {
+      this.direction = 0;
+    } else if (count3 === 0) {
+      this.direction = 3;
+    } else if (count4 === 0) {
+      this.direction = 1;
+    }
+  }
   placeShip() {
     let coordX = Math.floor(Math.random() * 16);
     let coordY = Math.floor(Math.random() * 16);
     let place = gameBoard2[coordX][coordY];
+    this.checkDirection(coordX, coordY);
     if (place.classList.contains("ship2") == false) {
       let x = 0;
       let y = 0;
@@ -441,23 +621,23 @@ class CruiserPC extends Ship {
     let count2 = this.size;
     let count3 = this.size;
     let count4 = this.size;
-    for (let i = 0; i < this.size; i++) {
-      if (gameBoard2[x][y + i].classList.contains("ship2")) {
+    for (let i = 0; i < this.size && y + i < 16; i++) {
+      if (!gameBoard2[x][y + i].classList.contains("ship2")) {
         count1--;
       }
     }
-    for (let i = 0; i < this.size; i++) {
-      if (gameBoard2[x][y - i].classList.contains("ship2")) {
+    for (let i = 0; i < this.size && y - i >= 0; i++) {
+      if (!gameBoard2[x][y - i].classList.contains("ship2")) {
         count2--;
       }
     }
-    for (let i = 0; i < this.size; i++) {
-      if (gameBoard2[x + i][y].classList.contains("ship2")) {
+    for (let i = 0; i < this.size && x + i < 16; i++) {
+      if (!gameBoard2[x + i][y].classList.contains("ship2")) {
         count3--;
       }
     }
-    for (let i = 0; i < this.size; i++) {
-      if (gameBoard2[x - i][y].classList.contais("ship2")) {
+    for (let i = 0; i < this.size && x - i >= 0; i++) {
+      if (!gameBoard2[x - i][y].classList.contains("ship2")) {
         count4--;
       }
     }
@@ -476,6 +656,7 @@ class CruiserPC extends Ship {
     let coordX = Math.floor(Math.random() * 16);
     let coordY = Math.floor(Math.random() * 16);
     let place = gameBoard2[coordX][coordY];
+    this.checkDirection(coordX, coordY);
     if (place.classList.contains("ship2") == false) {
       let x = 0;
       let y = 0;

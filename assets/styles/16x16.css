@@ -52,20 +52,12 @@ header h1 > a {
   background: red;
 }
 
-.winPic {
-  display: none;
-}
-
 .showWin {
   display: block;
   margin-left: auto;
   margin-right: auto;
   height: 80%;
   width: 80%;
-}
-
-.losePic {
-  display: none;
 }
 
 .showLose {
