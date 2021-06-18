@@ -10,4 +10,4 @@ Destruir os navios adversários <br>
 Clique no tabuleiro de cima e caso você acerte o alvo o quadrado ficará vermelho, caso erre, o quadrado ficará branco. <br>
 <hr>
 # LINK PRA O JOGO <br>
-Clique [aqui](https://briofita09.github.io/seaBattle/)
+https://briofita09.github.io/seaBattle/
